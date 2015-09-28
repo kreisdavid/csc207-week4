@@ -15,14 +15,18 @@ public class Ant extends Critter{
 		// TODO Auto-generated method stub
 		if(stepsNorth){
 			if(this.numSteps % 2 == 0){
+				this.numSteps++;
 				return Direction.NORTH;
 			} else {
+				this.numSteps++;
 				return Direction.EAST;
 			}
 		} else {
 			if(this.numSteps % 2 == 0){
+				this.numSteps++;
 				return Direction.SOUTH;
 			} else {
+				this.numSteps++;
 				return Direction.WEST;
 			}
 		}
