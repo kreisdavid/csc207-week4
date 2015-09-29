@@ -2,6 +2,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import Critter.Direction;
+//import Critter cannot be resolved
+
 public class CritterMovementTest{
 
 	//assert equals
@@ -10,6 +13,8 @@ public class CritterMovementTest{
 	public void testAnt() {
 		Ant a = new Ant(true);
 		assertEquals("ant first move", Direction.NORTH, a.getMove());
+		//getting error when calling Direction
+		//recommends to import Critter.Direction, but then error is still not resolved
 	}
 
 	@Test
@@ -21,7 +26,8 @@ public class CritterMovementTest{
 	@Test
 	public void testCat() {
 		Cat c = new Cat();
-		assertEquals("umm...?", 5, 5);
+		//getMove() selects a random direction... unpredictable 
+		assertEquals("cat symbol", "c", c.toString());
 	}
 
 	@Test
@@ -32,8 +38,9 @@ public class CritterMovementTest{
 
 	@Test
 	public void testHuman() {
-		Human h = new Human();
-		assertEquals("human first move", , h.getMove());
+		Human h = new Human(true);
+		assertEquals("human first move", Direction.NORTH, h.getMove());
+		//similar error to above
 	}
 
 	
