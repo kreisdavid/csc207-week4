@@ -3,6 +3,7 @@ import java.awt.Color;
 /**
  * A rock is an example Critter that... erodes.
  */
+@NoLoad
 public class Rock extends Critter {
 	/** @return the next move for this Rock: hold still! */
 	public Direction getMove() {

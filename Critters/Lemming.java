@@ -3,6 +3,7 @@ import java.awt.Color;
 /**
  * A Lemming is a Critter that always marches east.
  */
+@NoLoad
 public class Lemming extends Critter {
 	/** @return the next move of this Lemming: always east */
 	public Direction getMove() {

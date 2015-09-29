@@ -21,16 +21,13 @@ public class Bird extends Critter{
 		} else if(this.numSteps < 9){
 			this.numSteps++;
 			return Direction.SOUTH;
-		} else if(this.numSteps < 12){
+		} else{
 			this.numSteps++;
 			if(this.numSteps == 12){
 				this.numSteps = 0;
 			}
 			return Direction.WEST;
 		}
-		
-		
-		return null;
 	}
 
 	@Override
@@ -55,14 +52,13 @@ public class Bird extends Critter{
 		if(this.numSteps == 0){
 			return "<";
 		} else if(this.numSteps < 4){
-			return "^"; //change
+			return "∧";
 		} else if(this.numSteps < 7){
 			return ">";
 		} else if(this.numSteps < 10){
-			return "v";//change
+			return "∨";
 		} else{
 			return "<";
 		}
 	}
-
 }

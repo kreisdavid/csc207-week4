@@ -9,8 +9,9 @@ public class Human extends Critter {
 	private boolean hasMated;
 	private int turnsAfterMating;
 	private int turnDirection;
+	private boolean clockwise;
 	
-	public Human(){
+	public Human(boolean clockwise){
 		this.numSteps = 1;
 		this.hasMated = false;
 		this.turnsAfterMating = 9;
@@ -18,6 +19,7 @@ public class Human extends Critter {
 		this.numStepsX2 = 0;
 		this.turnDirection = 0;
 		this.stepsRemaining = 1;
+		this.clockwise = clockwise;
 	}
 	
 	@Override
@@ -29,7 +31,8 @@ public class Human extends Critter {
 			return Direction.CENTER;
 		}
 		
-		//otherwise, spiral counterclockwise following the fibonacci sequence
+		//otherwise, spiral clockwise/counterclockwise (based on boolean clockwise)
+		//       following the fibonacci sequence
 		//this code will not be reached if human is waiting after mating
 		if(this.stepsRemaining == 0){
 			this.numStepsX1 = this.numStepsX2;
@@ -44,14 +47,27 @@ public class Human extends Critter {
 		
 		this.stepsRemaining--;
 		
-		if(this.turnDirection == 0){
-			return Direction.NORTH;
-		} else if(this.turnDirection == 1){
-			return Direction.WEST;
-		} else if(this.turnDirection == 2){
-			return Direction.SOUTH;
+		
+		if(this.clockwise){
+			if(this.turnDirection == 0){
+				return Direction.NORTH;
+			} else if(this.turnDirection == 1){
+				return Direction.EAST;
+			} else if(this.turnDirection == 2){
+				return Direction.SOUTH;
+			} else{
+				return Direction.WEST;
+			}
 		} else{
-			return Direction.EAST;
+			if(this.turnDirection == 0){
+				return Direction.NORTH;
+			} else if(this.turnDirection == 1){
+				return Direction.WEST;
+			} else if(this.turnDirection == 2){
+				return Direction.SOUTH;
+			} else{
+				return Direction.EAST;
+			}
 		}
 		
 	}
